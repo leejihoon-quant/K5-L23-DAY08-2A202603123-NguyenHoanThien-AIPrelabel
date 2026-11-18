@@ -85,7 +85,6 @@
 
 - Số quyết định: 4 ca (CAL-01 đến CAL-04) trong `qc/calibration_decisions.csv`. Quan trọng nhất: **CAL-03** (cụm xe máy đỗ dày sát camera: `ignore_region` nếu cao < 20 px, không vẽ từng xe) và **CAL-02** (xe đạp điện có động cơ là `motorbike`).
 - Quy tắc mới đã vào `guideline_v1.1_calibrated.md`: 3 câu hỏi mở của v1.0 đã chốt (xe đạp điện, cụm xe dày, người trong xe ba bánh ≥ 20%). CAL-01 (tuk-tuk bị máy gọi là `car`/`truck`) là lỗi của máy, không thêm quy tắc mới vì v1.0 mục 2 đã nêu.
-- Chưa có ảnh ví dụ cho CAL-02 và CAL-04 (bạn chọn để trống). Ca xe lăn điện (img_999) không có trong dữ liệu nên đã bỏ khỏi báo cáo.
 - Nguyên nhân gốc: guideline mơ hồ (CAL-02, CAL-03, CAL-04); máy sai lớp (CAL-01).
 
 ## 7. QC và quyết định (Part 6)
