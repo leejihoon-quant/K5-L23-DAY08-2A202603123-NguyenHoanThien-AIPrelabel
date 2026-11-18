@@ -5,7 +5,7 @@
 - Lớp (L2 / L3 / khác): (CHƯA ĐIỀN)
 - Tài khoản GitHub: leejihoon-quant
 - Repo bài nộp (URL): https://github.com/leejihoon-quant/K5-L23-DAY08-2A202603123-NguyenHoanThien-AIPrelabel
-- Commit chốt bài (hash): (điền sau khi commit cuối)
+- Commit chốt bài (hash): e701578 (commit nội dung bài; sau đó chỉ có commit cập nhật file này)
 - Máy: Windows 11, CPU Intel i5-1240P, RAM 16 GB, không có GPU (CPU)
 - CVAT (Docker): v2.74.1
 
