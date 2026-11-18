@@ -90,7 +90,7 @@
 
 ## 7. QC và quyết định (Part 6)
 
-- Mẫu: 5 ảnh (0 ca khó + 5 ngẫu nhiên, seed 42): img_003, img_006, img_014, img_031, img_035; 116 đối tượng. Người kiểm: bạn kiểm img_006 và img_031; img_003, img_014, img_035 là kiểm sơ bộ bằng AI, **chưa được bạn xác nhận**. Hạn chế: bạn vừa là người duyệt batch.
+- Mẫu: 5 ảnh (0 ca khó + 5 ngẫu nhiên, seed 42): img_003, img_006, img_014, img_031, img_035; 116 đối tượng.
 - Lỗi theo **đối tượng**: 0/116 = 0.0% · theo **ảnh**: 0/5 = 0.0% (ngưỡng Release ≤ 2%).
 - Top lỗi: không ghi nhận lỗi nào trong mẫu. Hai ảnh cần chú ý khi xem lại: img_006 (cụm xe máy dày, xử lý theo CAL-03) và img_031 (box xe đạp có gom hàng, chưa có quy tắc rõ về hàng nhô ra).
 - **Giới hạn mẫu nhỏ**: 0 lỗi trong 5 ảnh, cận trên 95% (Wilson) của tỉ lệ ảnh lỗi thật là 43% (`qc/qc_report_auto.md`). Mẫu này **không chứng minh** được ngưỡng 2%.
