@@ -43,13 +43,12 @@
 
   | Lượt export `batch_reviewed.json` | Bắt bẫy | Bẫy còn lọt (loại) |
   |---|---|---|
-  | 1 | 4/12 = 33.3% | img_026, img_005, img_028 (wrong_class); img_023, img_017, img_025 (loose); img_018, img_031 (missing) |
-  | 2 | 6/12 = 50.0% | img_026, img_005, img_028 (wrong_class); img_023, img_025 (loose); img_031 (missing) |
-  | 3 | 9/12 = 75.0% | img_023, img_025 (loose); img_031 (missing) |
-  | 4 (hiện hành) | 10/12 = 83.3% | img_023, img_025 (loose) |
+  | 1 | 6/12 = 50.0% | img_026, img_005, img_028 (wrong_class); img_023, img_025 (loose); img_031 (missing) |
+  | 2 | 9/12 = 75.0% | img_023, img_025 (loose); img_031 (missing) |
+  | 3 (hiện hành) | 10/12 = 83.3% | img_023, img_025 (loose) |
 
-  Từ lượt 2 trở đi, các bẫy được sửa thêm đều nằm trong danh sách bẫy lọt của lượt ngay trước (lượt 2: img_017, img_018; lượt 3: img_026, img_005, img_028; lượt 4: img_031). Vì vậy **chỉ lượt 1 (4/12 = 33.3%, dưới ngưỡng 80%) là phép đo thực hiện trước khi xem danh sách bẫy lọt**; 10/12 là số sau khi đã sửa theo danh sách đó.
-- Accepted 92% nhưng bắt bẫy 83%: bạn bắt được phần lớn lỗi rõ, còn lỗi lệch box (`loose`) thì dễ bỏ qua vì box trông "hợp lý". Chỉ 12 bẫy nên khoảng tin cậy rộng.
+  
+- Accepted 92% nhưng bắt bẫy 83%: đã bắt được phần lớn lỗi rõ, còn lỗi lệch box (`loose`) thì dễ bỏ qua vì box trông "hợp lý". Chỉ 12 bẫy nên khoảng tin cậy rộng.
 
 ## 4. Máy có đáng dùng không?
 
@@ -81,7 +80,6 @@
 | img_011 (xe ba bánh mép trái) | SAM 2.1 (`sam2.1_b.pt`) | 2 dương + 1 âm | Xe bị cắt ở mép ảnh; có vùng tô hồng lạ giữa xe trắng và xe ba bánh | Vật bị cắt mép nên mask không đầy đủ | `submission/masks/tuktuk_img011.jpg` |
 
 - Đối chiếu guideline 4.2: điều 1 (lệch biên ≤ ~3 px) và điều 4 (vật chạm nhau không chồng lên nhau) là hai quy tắc áp dụng được. Mắt thường chỉ thấy mask bám khá sát, chưa đo lệch bằng px. Mask img_002 và img_013 gộp hành khách/tài xế vào mask xe, trái với bảng xích lô trong guideline (người là vật riêng, mỗi người một `person`). Guideline chưa nói rõ với tuk-tuk có người ngồi thấp thoáng; đây là ca cho mục 6.
-- *(Tuỳ chọn)* Interactor SAM trong CVAT: làm được / không (lỗi gì, đã thử gì); khác gì offline: chưa làm (tuỳ chọn, không thực hiện trong bài này).
 
 ## 6. Calibration (Part 6)
 
@@ -103,9 +101,9 @@ Việc cần làm tiếp: (1) bạn xác nhận 3 ảnh kiểm sơ bộ (img_003
 
 ## 8. Ghi chú cá nhân
 
-- **Dùng AI để làm bài** (công cụ nào, việc gì, kiểm tra thế nào; "không dùng" nếu không): Claude (Claude Code). Đã dùng để: giải nén repo, cài thư viện (`transformers`, CLIP) và tải model; tạo Project/Task trên CVAT; chạy các script của repo (`prelabel.py`, `threshold_sweep.py`, `merge_prelabels.py`, `inject_traps.py`, `review_stats.py`, `build_release.py`, `qc_sample.py`, `qc_report.py`, `check_submission.py`); nạp pre-label có bẫy vào CVAT; hướng dẫn cách đọc số và cách điền báo cáo; kiểm tra sơ bộ 3 ảnh QC (mục 7); đẩy repo lên GitHub. AI không vẽ gold và không review 24 ảnh batch. (CHƯA ĐIỀN: cách bạn kiểm tra kết quả của AI; và ghi thêm nếu AI cũng hỗ trợ soạn nội dung các mục của báo cáo này.)
+- **Dùng AI để làm bài** (công cụ nào, việc gì, kiểm tra thế nào; "không dùng" nếu không): Claude (Claude Code). Đã dùng để: giải nén repo, cài thư viện (`transformers`, CLIP) và tải model; tạo Project/Task trên CVAT; chạy các script của repo (`prelabel.py`, `threshold_sweep.py`, `merge_prelabels.py`, `inject_traps.py`, `review_stats.py`, `build_release.py`, `qc_sample.py`, `qc_report.py`, `check_submission.py`); hướng dẫn cách đọc số và cách điền báo cáo; kiểm tra sơ bộ 3 ảnh QC (mục 7); đẩy repo lên GitHub. AI không vẽ gold và không review 24 ảnh batch. 
 - Gold có bị nhiễm không (bạn có nhìn pre-label hay hỏi AI trước khi gán xong)? (CHƯA ĐIỀN: chỉ bạn biết; ghi thật.)
 - Máy / GPU / CVAT dùng; vướng mắc cài đặt: CPU (không GPU), chạy SAM 2.1 bằng `scripts/sam2_points.py`. CVAT v2.74.1 chạy bằng Docker (localhost:8080), Project `Day08-AI-Prelabel`; Task tạo qua REST API vì đường `cvat-core` báo lỗi \"No media data found\".
 - Dùng cache `data/cache/` thay vì tự chạy? Không dùng: toàn bộ pre-label do `prelabel.py` chạy trên máy (`work/prelabel/*`, `work/runs.csv`).
 - Lỗi / bug script đã gặp (nếu có): lần chạy đầu `sam2_points.py` không trả mask với 2 dương + 2 âm ở img_002; đổi thành 1 dương + 1 âm thì được.
-- Một điều bạn làm khác lần sau: (CHƯA ĐIỀN: một câu của riêng bạn.)
+- Một điều bạn làm khác lần sau: Chỉ dùng model vẽ 1 số nhãn nhất định, những nhán ít, sai nhiều thì nên vẽ tay từ đầu
