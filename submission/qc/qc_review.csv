@@ -1,0 +1,6 @@
+image,object_id,error_type,reviewer,note
+img_003.jpg,,khong,Claude (sơ bộ, chờ bạn xác nhận),các box chính đúng; vật xa nhỏ khó kiểm bằng ảnh này
+img_006.jpg,,khong,bạn,bạn đã kiểm: không lỗi
+img_014.jpg,,khong,Claude (sơ bộ, chờ bạn xác nhận),không thấy lỗi rõ; vật xa nhỏ khó kiểm
+img_031.jpg,,khong,bạn,bạn đã kiểm: không lỗi
+img_035.jpg,,khong,Claude (sơ bộ, chờ bạn xác nhận),không thấy lỗi rõ; nhiều người và xe chồng nhau ở nền

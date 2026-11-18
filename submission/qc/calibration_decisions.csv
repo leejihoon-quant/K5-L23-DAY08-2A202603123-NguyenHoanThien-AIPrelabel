@@ -1,1 +1,5 @@
 case_id,image,nguon,van_de,quyet_dinh,quy_tac_ghi_vao_guideline,phien_ban_guideline
+CAL-01,img_002|img_011,loi_may,"YOLO26 gọi tuk-tuk là car (img_002) hoặc truck (img_011)","gán three_wheeler; máy sai lớp, sửa tay","không thêm: đã có ở v1.0 mục 2 (tuk-tuk là three_wheeler)",v1.1
+CAL-02,,cau_hoi_mo,"Xe đạp điện: bicycle hay motorbike?","motorbike (xe có động cơ)","v1.1 mục 1: xe đạp điện có động cơ là motorbike",v1.1
+CAL-03,img_006,cau_hoi_mo,"Cụm xe máy đỗ dày sát camera, nhiều xe chồng nhau","ignore_region nếu cao < 20 px; không vẽ từng xe","v1.1 mục 1: cụm cao < 20 px dùng ignore_region (mục 4.1.6)",v1.1
+CAL-04,,cau_hoi_mo,"Người ngồi trong xe ba bánh có mái che, chỉ thấy thấp thoáng","gán person khi thấy ≥ 20% người","v1.1 mục 1: còn thấy ≥ 20% thì gán person (mục 4.1.2)",v1.1
